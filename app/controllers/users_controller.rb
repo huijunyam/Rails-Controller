@@ -31,12 +31,12 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       render json: @user
     else
-      render json: @user.erros.full_messages
+      render json: @user.errors.full_messages
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:username)
   end
 end
